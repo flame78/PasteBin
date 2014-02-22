@@ -5,6 +5,10 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PasteBin", "PasteBin\PasteBin.csproj", "{9184D7EC-2509-41E4-B766-E17F5DED493F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZeroTest", "ZeroTest\ZeroTest.csproj", "{70764EE6-F824-4125-A62D-D012249BFAB6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reflection", "Reflection\Reflection.csproj", "{12F76259-6538-42A6-BE6D-CD4D2DA3E202}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{9184D7EC-2509-41E4-B766-E17F5DED493F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9184D7EC-2509-41E4-B766-E17F5DED493F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9184D7EC-2509-41E4-B766-E17F5DED493F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70764EE6-F824-4125-A62D-D012249BFAB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70764EE6-F824-4125-A62D-D012249BFAB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70764EE6-F824-4125-A62D-D012249BFAB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70764EE6-F824-4125-A62D-D012249BFAB6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12F76259-6538-42A6-BE6D-CD4D2DA3E202}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12F76259-6538-42A6-BE6D-CD4D2DA3E202}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12F76259-6538-42A6-BE6D-CD4D2DA3E202}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12F76259-6538-42A6-BE6D-CD4D2DA3E202}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

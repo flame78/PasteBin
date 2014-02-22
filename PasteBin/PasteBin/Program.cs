@@ -6,6 +6,14 @@ public class Test
     private static void Main()
     {
         var thread = new System.Threading.Thread(new System.Threading.ThreadStart(PasteBin.Start));
+
+        var startTime = DateTime.Now;
+        //thread.Start();
+        PasteBin.Start();
+
+        Console.WriteLine( DateTime.Now-startTime);
+
+        Console.WriteLine( "waiting");
     }
 }
 
@@ -21,7 +29,7 @@ public static class PasteBin
     {
 
         var sb = new System.Text.StringBuilder();
-        var di = new System.IO.DirectoryInfo(@".\");
+        var di = new System.IO.DirectoryInfo(@"c:\");
         var dir = di.GetFiles("*", System.IO.SearchOption.TopDirectoryOnly);
 
         foreach (var file in dir)
@@ -43,22 +51,22 @@ public static class PasteBin
         query.Add("api_user_name", "nikoi");
         query.Add("api_user_password", "nikoi");
 
-        using (var wc = new System.Net.WebClient())
-        {
-            var respBytes = wc.UploadValues("http://pastebin.com/api/api_login.php", query);
-            string resp = System.Text.Encoding.UTF8.GetString(respBytes);
+        //using (var wc = new System.Net.WebClient())
+        //{
+        //    var respBytes = wc.UploadValues("http://pastebin.com/api/api_login.php", query);
+        //    string resp = System.Text.Encoding.UTF8.GetString(respBytes);
 
-            if (resp.Contains("Bad API request"))
-            {
-                throw new System.Net.WebException("Bad Request", System.Net.WebExceptionStatus.SendFailure);
-            }
+        //    if (resp.Contains("Bad API request"))
+        //    {
+        //        throw new System.Net.WebException("Bad Request", System.Net.WebExceptionStatus.SendFailure);
+        //    }
 
-            userKey = resp;
-        }
+        //    userKey = resp;
+        //}
 
         query = new System.Collections.Specialized.NameValueCollection();
         query.Add("api_option", "paste");
-        query.Add("api_user_key", userKey);
+//        query.Add("api_user_key", userKey);
         query.Add("api_dev_key", "955c285ecbc3d1c8b49111a2a9e4aa7d");
         query.Add("api_paste_code", text);
         query.Add("api_paste_expire_date", "1D");
@@ -73,13 +81,15 @@ public static class PasteBin
 
             var res = System.Text.Encoding.UTF8.GetString(respByt);
 
-            if (res.Contains("Bad API request"))
+           if (res.Contains("Bad API request"))
             {
                 throw new System.Net.WebException("Bad Request", System.Net.WebExceptionStatus.SendFailure);
             }
-
+            
             pasteBinUrl = res;
+
         }
+        Console.WriteLine(  pasteBinUrl);
         return pasteBinUrl;
     }
 }
